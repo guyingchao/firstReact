@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Child from './component/child';
+import Child2 from './component/child2'
+// import eventEmitter from './tools/eventEmitter'
 // class Square extends React.Component {
     // constructor(){
     //     super()
@@ -108,6 +111,10 @@ function Square(props){
             xIsNext: (step%2)===0,
         })
     }
+    getData(){
+      // console.log(value)
+      
+    }
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber]
@@ -129,6 +136,9 @@ function Square(props){
             status = 'next player: '+(this.state.xIsNext?'x':'o')
         }
       return (
+        <div>
+          <Child name='guchao' onName={(value)=>this.getData(value)}></Child>
+          <Child2></Child2>
         <div className="game">
           <div className="game-board">
             <Board 
@@ -140,6 +150,7 @@ function Square(props){
             <div>{status}</div>
             <ol>{moves}</ol>
           </div>
+        </div>
         </div>
       );
     }
