@@ -7,9 +7,13 @@ class Child extends React.Component {
     //         value:null
     //     }
     // }
+    // 子传父
     toParent(){
       // const {onName} = this.props
-      // this.props.onName('guchao')
+      this.props.onName('guchao')
+    }
+    // 兄弟之间传值
+    toBrother(){
       eventEmitter.emit('EVENT','guchaolalallallal')
     }
     render() {
@@ -17,6 +21,7 @@ class Child extends React.Component {
       return (
         <div>
           <span onClick={()=>this.toParent()}>{name}</span>
+          <span onClick={()=>this.toBrother()}>兄弟</span>
           <button className="square" onClick={()=>this.props.onClick()}>
           {this.props.value}
         </button>

@@ -111,9 +111,8 @@ function Square(props){
             xIsNext: (step%2)===0,
         })
     }
-    getData(){
-      // console.log(value)
-      
+    getData(value){
+      console.log('childtoparent',value)
     }
     render() {
         const history = this.state.history;
